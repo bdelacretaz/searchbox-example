@@ -18,11 +18,14 @@ class SearchResult extends HTMLElement {
       const clazz = e.getAttribute('class');
       if(clazz) {
         e.textContent = this.getAttribute(clazz);
-        this.removeAttribute(clazz);
       }
     });
     this.querySelector('img')?.setAttribute('src', this.getAttribute('image'));
     this.querySelector('a').setAttribute('href', this.getAttribute('path'));
+
+    Array.from(this.attributes).forEach(attr => {
+      this.removeAttribute(attr.name);
+    });
   }
 }
 
