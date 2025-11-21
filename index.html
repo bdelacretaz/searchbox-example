@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Web Components search box example</title>
+  <style type="text/css">
+    search-result img {
+      width: 30%;
+      height: auto;
+      text-align: center;
+      object-fit: cover;
+    }
+  </style>
+  <script type="module" src="js/search-input.js"></script>
+  <script type="module" src="js/search-result.js"></script>
+</head>
+
+<body>
+  <search-input src="data/sorted-query-index.json" target="#search-results"></search-input>
+  <div id="search-results">No results yet</div>
+</body>
+
+</html>
