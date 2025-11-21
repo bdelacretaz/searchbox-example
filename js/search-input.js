@@ -31,6 +31,11 @@ class SearchInput extends HTMLElement {
       throw new Error("'src' attribute is required, must point to data source");
     }
 
+    this.#input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') {
+        this.#search();
+      }
+    });
     this.#button.addEventListener('click', () => this.#search());
   }
 
