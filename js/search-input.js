@@ -50,10 +50,9 @@ class SearchInput extends HTMLElement {
   async #search() {
     const fetched = await fetch(this.#src);
     const data = JSON.parse(await fetched.text()).data;
-    const results = data.filter(item => this.#match(item));
 
     this.#target.innerHTML = '';
-    results.filter(item => this.#match(item)).forEach(item => {
+    data.filter(item => this.#match(item)).forEach(item => {
       const result = document.createElement('search-result');
       this.#toCopy.forEach(attr => { 
         result.setAttribute(attr, item[attr]);
